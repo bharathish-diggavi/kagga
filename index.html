@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ಡಿವಿಜಿ ಯವರ ಮಂಕುತಿಮ್ಮನ ಕಗ್ಗಗಳು</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      .text-glow-light {
+        text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.4);
+      }
+      .text-glow-dark {
+        text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.6);
+      }
+      @keyframes fade-in-up {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes fade-out-down {
+        from {
+          opacity: 1;
+          transform: translateY(0);
+        }
+        to {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+      }
+
+      .animate-fade-in-up {
+        animation: fade-in-up 0.3s ease-out both;
+      }
+
+      .animate-fade-out-down {
+        animation: fade-out-down 0.2s ease-in both;
+      }
+    </style>
+  </head>
+  <body
+    class="bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition"
+  >
+    <div class="max-w-7xl mx-auto p-4">
+      <h1 class="text-3xl font-bold text-center mb-6">
+        ಡಿವಿಜಿ ಯವರ ಮಂಕುತಿಮ್ಮನ ಕಗ್ಗಗಳು
+      </h1>
+      <p class="text-center max-w-3xl mx-auto text-gray-700 dark:text-gray-300 text-base md:text-lg mt-2 pb-4">
+        ಮಂಕುತಿಮ್ಮನ ಕಗ್ಗವು ದ. ವಿ. ಗುಂಡಪ್ಪ ಅವರ ಅತ್ಯಂತ ಪ್ರಭಾವಿ ಕವನ ಸಂಕಲನವಾಗಿದ್ದು, ಮಾನವ ಜೀವನದ ನೈತಿಕತೆ, ತಾತ್ವಿಕತೆ ಮತ್ತು ಸರಳ ಸತ್ಯಗಳನ್ನು ನಾಲ್ಕು ಸಾಲುಗಳಲ್ಲಿ ತುಂಬಾ ಆಳವಾಗಿ ವಿವರಿಸುತ್ತದೆ.
+      </p>      
+      <div class="flex justify-center mb-6">
+        <button
+          id="dark-toggle"
+          class="px-4 py-2 text-sm rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-100 hover:bg-gray-100 dark:hover:bg-gray-700 transition"
+        >
+         🌙
+        </button>
+      </div>
+
+      <div class="flex justify-center mt-6 mb-4">
+        <input
+          id="search"
+          type="text"
+          placeholder="Search by poem, translation, or description..."
+          class="w-full max-w-md px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-400 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400"
+        />
+      </div>
+
+      <!-- Cards -->
+      <div
+        id="poem-container"
+        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-6"
+      ></div>
+
+      <!-- Pagination -->
+      <div
+        id="pagination"
+        class="flex flex-wrap justify-center items-center gap-2 mt-6 text-sm text-gray-700 dark:text-gray-300"
+      >
+        <!-- Pagination buttons are injected here by JavaScript -->
+      </div>
+    </div>
+
+    <!-- Modal -->
+    <!-- Modal Overlay -->
+    <div
+      id="modal"
+      class="fixed inset-0 z-50 bg-black/40 backdrop-blur-sm hidden flex items-center justify-center px-4"
+    >
+      <div id="modalContentWrapper" class="relative w-full max-w-3xl">
+        <!-- Modal Content Injected Here -->
+        <div id="modal-content"></div>
+      </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="poems.js"></script>
+    <script src="main.js"></script>
+    <script>
+      tailwind.config = { darkMode: "class" };
+    </script>
+  </body>
+</html>
