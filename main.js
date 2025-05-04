@@ -75,9 +75,8 @@ function createPoemCard(poem, index) {
   poemKannada.textContent = poem.kagga_kn;
   // centered poemKannada.className = "font-bold text-lg whitespace-pre-wrap text-center leading-relaxed";
   //   poemKannada.className = "font-bold text-lg whitespace-pre-wrap";
-  poemKannada.className = `font-bold text-lg whitespace-pre-wrap text-center leading-relaxed ${
-    isDark ? "text-glow-light" : "text-glow-dark"
-  }`;
+  poemKannada.className = `font-bold text-lg whitespace-pre-wrap text-center leading-relaxed ${isDark ? "text-glow-light" : "text-glow-dark"
+    }`;
 
   const descEnglish = document.createElement("p");
   descEnglish.textContent = truncateText(poem.kagga_eng, 60);
@@ -155,10 +154,9 @@ function renderPagination(currentPage, totalPages) {
     btn.className = `
       px-3 py-1 rounded-lg border 
       transition-transform transform duration-200
-      ${
-        isActive
-          ? "bg-blue-500 text-white dark:bg-blue-600"
-          : "bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-100 hover:bg-gray-300 dark:hover:bg-gray-600"
+      ${isActive
+        ? "bg-blue-500 text-white dark:bg-blue-600"
+        : "bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-100 hover:bg-gray-300 dark:hover:bg-gray-600"
       }
       hover:scale-105 active:scale-95 shadow-sm
     `;
@@ -254,13 +252,11 @@ function openModal(poem, index) {
 function updateModalContent(poem) {
   modalContent.innerHTML = `
       <div class="flex justify-between mb-6">
-        <button onclick="showPrevious()" class="px-4 py-2 rounded bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 text-sm" ${
-          currentPoemIndex === 0 ? "disabled" : ""
-        }>← Previous</button>
+        <button onclick="showPrevious()" class="px-4 py-2 rounded bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 text-sm" ${currentPoemIndex === 0 ? "disabled" : ""
+    }>← Previous</button>
         <button id="closeModalBtn" class="px-4 py-2 rounded bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 text-sm"}>Close</button>
-        <button onclick="showNext()" class="px-4 py-2 rounded bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 text-sm" ${
-          currentPoemIndex === poems.length - 1 ? "disabled" : ""
-        }>Next →</button>
+        <button onclick="showNext()" class="px-4 py-2 rounded bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 text-sm" ${currentPoemIndex === poems.length - 1 ? "disabled" : ""
+    }>Next →</button>
       </div>
       <h2 class="text-2xl font-bold mb-4 text-center">ಕಗ್ಗ - ${poem._id}</h2>
   
@@ -270,9 +266,8 @@ function updateModalContent(poem) {
   
       <h4 class="text-l font-bold mb-4 text-center">ಭಾವಾರ್ಥ</h4>
       <hr class="my-4 border-gray-300 dark:border-gray-700" />
-      <pre class="text-sm mb-4 whitespace-pre-wrap">${
-        poem.kagga_tatparya_kn
-      }</pre>
+      <pre class="text-sm mb-4 whitespace-pre-wrap">${poem.kagga_tatparya_kn
+    }</pre>
   
       <h4 class="text-l font-bold mb-4 text-center">Description</h4>
       <hr class="my-4 border-gray-300 dark:border-gray-700" />
@@ -283,17 +278,17 @@ function updateModalContent(poem) {
       <pre class="text-sm whitespace-pre-wrap">${poem.kagga_vyakhyana_kn}</pre>
 
       <div
-        class="flex justify-between items-center pt-4 border-t border-gray-300 dark:border-gray-600"
+        class="flex justify-center items-center pt-4 border-t border-gray-300 dark:border-gray-600"
       >
         <button
           id="modal-share"
-          class="px-4 py-1 text-sm text-white bg-green-600 hover:bg-green-700 rounded-md shadow"
+          class="px-4 py-2 rounded bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 text-sm shadow"
         >
-          📤 Share Poem
+          📤  Share Kagga
         </button>
       </div>
 
-      <div id="share-preview-container" class="hidden pt-4">
+      <div id="share-preview-container" class="hidden pt-4 flex flex-col justify-center items-center">
         <p class="text-sm text-gray-500 dark:text-gray-400 mb-2">Preview:</p>
         <img
           id="share-preview-img"
@@ -398,14 +393,14 @@ function sharePoemImage(poemText) {
     if (
       navigator.canShare &&
       navigator.canShare({
-        files: [new File([blob], "poem.png", { type: "image/png" })],
+        files: [new File([blob], "kakka.png", { type: "image/png" })],
       })
     ) {
-      const file = new File([blob], "poem.png", { type: "image/png" });
+      const file = new File([blob], "kagga.png", { type: "image/png" });
       navigator
         .share({
-          title: "Poem by DVG",
-          text: "Check out this Kannada poem",
+          title: "Kagga by DVG",
+          text: "Check out this Kagga",
           files: [file],
         })
         .catch(console.warn);
@@ -413,7 +408,7 @@ function sharePoemImage(poemText) {
       // Fallback to download
       const link = document.createElement("a");
       link.href = imageUrl;
-      link.download = "poem.png";
+      link.download = "kagga.png";
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
