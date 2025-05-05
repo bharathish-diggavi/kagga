@@ -1,4 +1,4 @@
-const poemsPerPage = 21;
+const poemsPerPage = 18;
 let currentPage = 1;
 let filteredPoems = poems; // global var from poems.js
 
